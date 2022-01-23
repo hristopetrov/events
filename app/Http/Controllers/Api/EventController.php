@@ -20,11 +20,15 @@ class EventController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @parm Request $request
      * @return JsonResponse
      */
-    public function index(): JsonResponse
+    public function index(Request $request): JsonResponse
     {
-        $events = QueryBuilder::for(Event::with(['room', 'user']))
+        $query = Event::with(['room', 'user'])
+                      ->forUser($request->user()->id);
+
+        $events = QueryBuilder::for($query)
             ->allowedFilters([
                 AllowedFilter::scope('by_date'),
             ])

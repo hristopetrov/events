@@ -59,6 +59,16 @@ class Event extends Model
 
     /**
      * @param Builder $query
+     * @param $userId
+     * @return Builder
+     */
+    public function scopeForUser(Builder $query, $userId): Builder
+    {
+        return $query->where('user_id', $userId);
+    }
+
+    /**
+     * @param Builder $query
      * @param $startAt
      * @param $endAt
      * @return Builder
