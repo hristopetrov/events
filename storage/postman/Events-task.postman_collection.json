@@ -309,7 +309,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/events?filter[for_date]=2022-01-22",
+							"raw": "{{base_url}}/api/events?filter[by_date]=2022-01-22",
 							"host": [
 								"{{base_url}}"
 							],
@@ -319,9 +319,44 @@
 							],
 							"query": [
 								{
-									"key": "filter[for_date]",
+									"key": "filter[by_date]",
 									"value": "2022-01-22"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete event",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Referer",
+								"value": "{{host}}",
+								"type": "default"
+							},
+							{
+								"key": "X-XSRF-TOKEN",
+								"value": "{{xsrf-cookie}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/events/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"events",
+								"1"
 							]
 						}
 					},
